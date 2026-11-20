@@ -35,7 +35,7 @@ pub fn render_mockup_png(
         if matches.next().is_some() {
             return Err(MockupError::AmbiguousLayer(layer_name.into()));
         }
-        if !matches!(first.2.content, LayerContent::Smart(_)) {
+        if !matches!(&first.2.content, LayerContent::Smart(_)) {
             return Err(MockupError::NotSmartObject(layer_name.into()));
         }
         first.2.id
