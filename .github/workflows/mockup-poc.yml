@@ -1,0 +1,20 @@
+name: Mockup POC
+on:
+  push:
+    branches: [experiment/mockup-render-poc]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.95.0"
+      - uses: Swatinem/rust-cache@v2
+      - name: Check adapter
+        run: cargo check -p photocraft-mockup-poc
+      - name: Run adapter tests
+        run: cargo test -p photocraft-mockup-poc
