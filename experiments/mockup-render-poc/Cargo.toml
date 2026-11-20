@@ -1,0 +1,11 @@
+[package]
+name = "photocraft-mockup-poc"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+photocraft-engine = { path = "../../crates/engine" }
+photocraft-doc = { path = "../../crates/doc" }
+photocraft-io = { path = "../../crates/io" }
+serde_json = "1"
